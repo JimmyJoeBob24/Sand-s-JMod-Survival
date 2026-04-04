@@ -1,0 +1,48 @@
+"Gamemode"
+{
+	"base"			"base"
+	"title"			"SandMan's JSurvival"
+	"maps"			"jm_"
+	"menusystem"	"1"
+	"category"		"pve"	
+	"workshopid"	"3372177297"
+
+	"settings"
+	{		
+		1
+		{
+			"name" 		"toolsbool"
+			"text"		"Romania Be Like ( All players Start with a Toolbox )"
+			"type" 		"CheckBox"
+			"default" 	"0"
+			"singleplayer"	"1"
+		}
+
+		2
+		{
+			"name" 		"kitstart"
+			"text"		"Start With Some Tools (Pickaxe, Axe, Bucket)"
+			"type" 		"CheckBox"
+			"default" 	"0"
+			"singleplayer"	"1"
+		}
+		
+		3
+		{
+			"name" 		"bigbucks"
+			"text"		"Starting Money :"
+			"type" 		"Numeric"
+			"default" 	"250"
+			"singleplayer"	"1"
+		}
+
+		4
+		{
+			"name" 		"toolteeps"
+			"text"		"Show Controls? (Shows all the reserved keybinds on screen)"
+			"type" 		"CheckBox"
+			"default" 	"1"
+			"singleplayer"	"1"
+		}
+	}
+}

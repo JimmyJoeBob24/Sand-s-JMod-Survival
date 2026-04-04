@@ -1,0 +1,1 @@
+resource.AddDirectory("sound/music/")
