@@ -11,7 +11,6 @@ AddCSLuaFile("menu/hud.lua")
 AddCSLuaFile("menu/fonts.lua")
 AddCSLuaFile("globals/sh_shoptable.lua")
 AddCSLuaFile("menu/itemshop.lua")
-
 --Gotta rework this fuckass monty system
 function GM:PlayerDeath(victim, inflictor, attacker)
     local randomint = math.random(25, 250)
