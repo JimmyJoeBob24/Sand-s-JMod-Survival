@@ -4,8 +4,8 @@ surface.CreateFont( "JMSF", {
 	size = 60,
 	weight = 50,
 	blursize = 0.9,
-	scanlines = 2,
-	antialias = true,
+	scanlines = 0,
+	antialias = false,
 	underline = false,
 	italic = false,
 	strikeout = false,
@@ -22,8 +22,8 @@ surface.CreateFont( "JMSF_COUNT", {
 	size = 40,
 	weight = 500,
 	blursize = 0,
-	scanlines = 2,
-	antialias = true,
+	scanlines = 0,
+	antialias = false,
 	underline = false,
 	italic = false,
 	strikeout = false,
@@ -31,7 +31,7 @@ surface.CreateFont( "JMSF_COUNT", {
 	rotary = false,
 	shadow = true,
 	additive = false,
-	outline = true,
+	outline = false,
 } )
 
 surface.CreateFont( "JMSF_CHEAP", {
@@ -40,7 +40,7 @@ surface.CreateFont( "JMSF_CHEAP", {
 	size = 60,
 	weight = 500,
 	blursize = 0,
-	scanlines = 2,
+	scanlines = 0,
 	antialias = true,
 	underline = false,
 	italic = false,
@@ -52,14 +52,14 @@ surface.CreateFont( "JMSF_CHEAP", {
 	outline = true,
 } )
 
-surface.CreateFont( "ScannedCool", {
-	font = "Terminal", 
+surface.CreateFont( "Console", {
+	font = "Roboto-Regular",
 	extended = false,
-	size = 20,
-	weight = 500,
+	size = 22,
+	weight = 100,
 	blursize = 0,
-	scanlines = 2,
-	antialias = true,
+	scanlines = 0,
+	antialias = false,
 	underline = false,
 	italic = false,
 	strikeout = false,
@@ -67,17 +67,17 @@ surface.CreateFont( "ScannedCool", {
 	rotary = false,
 	shadow = true,
 	additive = false,
-	outline = true,
-} )
+	outline = false,
+} 	)
 
-surface.CreateFont( "ScannedCoolshop1", {
-	font = "Terminal", 
+surface.CreateFont( "JMSF_ITEM", {
+	font = "Roboto-Regular",
 	extended = false,
-	size = 14,
-	weight = 500,
+	size = 10,
+	weight = 200,
 	blursize = 0,
-	scanlines = 2,
-	antialias = true,
+	scanlines = 0,
+	antialias = false,
 	underline = false,
 	italic = false,
 	strikeout = false,
@@ -85,23 +85,5 @@ surface.CreateFont( "ScannedCoolshop1", {
 	rotary = false,
 	shadow = true,
 	additive = false,
-	outline = true,
-} )
-
-surface.CreateFont( "ScannedCoolshop2", {
-	font = "Terminal", 
-	extended = false,
-	size = 12,
-	weight = 500,
-	blursize = 0,
-	scanlines = 2,
-	antialias = true,
-	underline = false,
-	italic = false,
-	strikeout = false,
-	symbol = false,
-	rotary = false,
-	shadow = true,
-	additive = false,
-	outline = true,
-} )
+	outline = false,
+} 	)

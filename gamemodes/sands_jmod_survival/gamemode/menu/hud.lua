@@ -1,53 +1,109 @@
 function PlayerHud() 
-    faded_black = Color(0, 0, 0, 200)
     local client = LocalPlayer()
-    local dynahpcolor = Color(client:GetMaxHealth() - 50, client:Health(), 0 ,188) 
-    local dynahpgirth = client:Health() * 2.4
-    local dynahpmaxhi = client:GetMaxHealth()
-    local minhp = dynahpgirth - dynahpmaxhi
-    //Ik its redundant but i like to fuck arround with variables 
+    local divisionDark = Color(20, 20, 25, 220)
+    local divisionAmber = Color(235, 150, 55, 255)
+    local dynahpcolor = Color(235, 150, 55, 200)
+    
     if !client:Alive() then
         return
     end
 
-    //Dynamic Hp Bar
-    //Reference draw.RoundedBox(cornerRadius,x, y, width,  height, color)
-    draw.RoundedBox(4, 40, ScrH() - 40, 140, 10, faded_black)
-    draw.RoundedBox(4, 40, ScrH() - 40, math.Clamp(dynahpmaxhi,minhp,dynahpgirth), 10, dynahpcolor)
-
-    --Tooltips or whatever the fuck it's called
-
-    if GetConVar("toolteeps"):GetBool() then
-
-        draw.RoundedBox(4,ScrW() - 262, ScrH() -360, 255, 193,Color( 40, 45, 35, 42 ))
-        draw.RoundedBox(2,ScrW() - 262, ScrH() -360, 255, 30,Color( 40, 45, 35, 200 ))
-        draw.SimpleText("Keybinds ","ScannedCool",ScrW() - 130, ScrH() - 358, Color(255, 100, 100, 200), TEXT_ALIGN_CENTER )
-        draw.SimpleText("F4 : Scrounge / Scavenge","ScannedCoolshop1",ScrW() - 260, ScrH() - 320, Color(255, 250, 255, 150), TEXT_ALIGN_LEFT )
-        draw.SimpleText("F3 : Open Inventory","ScannedCoolshop1",ScrW() - 260, ScrH() - 262, Color(255, 250, 255, 150), TEXT_ALIGN_LEFT )
-        draw.SimpleText("TAB : Open The Shop Menu","ScannedCoolshop1",ScrW() - 260, ScrH() - 200, Color(255, 250, 255, 150), TEXT_ALIGN_LEFT )
-    end
-
+    local hpBarX, hpBarY, hpBarW, hpBarH = 14, ScrH() - 80, 230, 30
+    
+    surface.SetDrawColor(divisionDark)
+    surface.DrawRect(hpBarX, hpBarY, hpBarW, hpBarH)
+    surface.SetDrawColor(Color(15, 15, 20, 220))
+    surface.DrawRect(hpBarX + 2, hpBarY + 2, hpBarW - 4, hpBarH - 4)
+    surface.SetDrawColor(divisionAmber)
+    surface.DrawOutlinedRect(hpBarX, hpBarY, hpBarW, hpBarH)
+    
+    local bracketSize = 15
+    surface.DrawLine(hpBarX, hpBarY, hpBarX + bracketSize, hpBarY)
+    surface.DrawLine(hpBarX, hpBarY, hpBarX, hpBarY + bracketSize)
+    surface.DrawLine(hpBarX + hpBarW, hpBarY, hpBarX + hpBarW - bracketSize, hpBarY)
+    surface.DrawLine(hpBarX + hpBarW, hpBarY, hpBarX + hpBarW, hpBarY + bracketSize)
+    surface.DrawLine(hpBarX, hpBarY + hpBarH, hpBarX + bracketSize, hpBarY + hpBarH)
+    surface.DrawLine(hpBarX, hpBarY + hpBarH, hpBarX, hpBarY + hpBarH - bracketSize)
+    surface.DrawLine(hpBarX + hpBarW, hpBarY + hpBarH, hpBarX + hpBarW - bracketSize, hpBarY + hpBarH)
+    surface.DrawLine(hpBarX + hpBarW, hpBarY + hpBarH, hpBarX + hpBarW, hpBarY + hpBarH - bracketSize)
+    
+    local hpPercent = math.Clamp(client:Health() / client:GetMaxHealth(), 0, 1)
+    surface.SetDrawColor(Color(235, 150, 55, 255))
+    surface.DrawRect(hpBarX + 2, hpBarY + 2, (hpBarW - 4) * hpPercent, hpBarH - 4)
+    surface.SetDrawColor(Color(255, 205, 125, 120))
+    surface.DrawRect(hpBarX + 2, hpBarY + 2, (hpBarW - 4) * hpPercent, 4)
+    
+    draw.SimpleText("HEALTH", "HudDefault", hpBarX + 5, hpBarY + 8, divisionAmber, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP)
+    draw.SimpleText(math.floor(client:Health()) .. " / " .. client:GetMaxHealth(), "DermaDefault", hpBarX + 120, hpBarY + 7, Color(255, 255, 255, 200), TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP)
+    
     local balance = client:GetNetworkedInt("Balance")
-    //client related vars
     local clientarmor = client:Armor()
-    //Other Color vars
-    local armorgleen = Color(0,150,150, clientarmor)
 
 hook.Add( "HUDPaint", "healthicon", function()
-    draw.RoundedBox(4, 5, ScrH() - 55, 188, 45, faded_black)
-    draw.RoundedBox(2, 5, ScrH() - 110, 188, 45, faded_black)
-    draw.RoundedBox(2, 5, ScrH() - 130, 150, 20, faded_black)
+    local divisionDark = Color(20, 20, 25, 220)
+    local divisionAmber = Color(235, 150, 55, 255)
+    
+    local statusX, statusY = 5, ScrH() - 150
+    local statusW, statusH = 250, 140
 
-    draw.SimpleText( "Status : " , "ScannedCool", ScrW() - 1345, ScrH() - 130, Color( 255, 255, 255, 255 ))
-    draw.SimpleText( "t", "JMSF", ScrW() - 1335, ScrH() - 123, armorgleen, TEXT_ALIGN_CENTER )
-    draw.SimpleText( "k", "JMSF", ScrW() - 1340, ScrH() - 68, dynahpcolor, TEXT_ALIGN_CENTER )
-    draw.SimpleText( "g", "JMSF_CHEAP", ScrW() - 1340, ScrH() - 180, Color(105, 250, 65, 250), TEXT_ALIGN_CENTER )
-    draw.SimpleText( balance, "JMSF_COUNT", ScrW() - 1260, ScrH() - 189, Color(105, 250, 65, 250), TEXT_ALIGN_CENTER )
-    --idk why but deleting THIS SPECEFIC COMMENT IN PARTICULAR BREAKS EEVERYTHING, DO NOT FUCKING TOUCH IT
+    surface.SetDrawColor(divisionDark)
+    surface.DrawRect(statusX, statusY, statusW, statusH)
+    surface.SetDrawColor(divisionAmber)
+    surface.DrawOutlinedRect(statusX, statusY, statusW, statusH)
+    
+    local bracketSize = 15
+    surface.DrawLine(statusX, statusY, statusX + bracketSize, statusY)
+    surface.DrawLine(statusX, statusY, statusX, statusY + bracketSize)
+    surface.DrawLine(statusX + statusW, statusY, statusX + statusW - bracketSize, statusY)
+    surface.DrawLine(statusX + statusW, statusY, statusX + statusW, statusY + bracketSize)
+    surface.DrawLine(statusX, statusY + statusH, statusX + bracketSize, statusY + statusH)
+    surface.DrawLine(statusX, statusY + statusH, statusX, statusY + statusH - bracketSize)
+    surface.DrawLine(statusX + statusW, statusY + statusH, statusX + statusW - bracketSize, statusY + statusH)
+    surface.DrawLine(statusX + statusW, statusY + statusH, statusX + statusW, statusY + statusH - bracketSize)
+    
+    draw.SimpleText("STATUS", "DermaDefault", statusX + 10, statusY + 8, divisionAmber, TEXT_ALIGN_LEFT)
+    surface.SetDrawColor(divisionAmber)
+    surface.DrawLine(statusX + 10, statusY + 25, statusX + statusW - 10, statusY + 25)
+    
+    local clientarmor = LocalPlayer():Armor()
+    draw.SimpleText("Health & Armor", "DermaDefault", statusX + 10, statusY + 30, divisionAmber, TEXT_ALIGN_LEFT)
+    surface.SetDrawColor(Color(200, 200, 200, 100))
+    surface.DrawRect(statusX + 10, statusY + 50, 230, 12)
+    local armorPercent = math.Clamp(clientarmor / 100, 0, 1)
+    surface.SetDrawColor(Color(100, 200, 100, 200))
+    surface.DrawRect(statusX + 10, statusY + 50, 230 * armorPercent, 12)
+    surface.SetDrawColor(divisionAmber)
+    surface.DrawOutlinedRect(statusX + 10, statusY + 50, 230, 12)
+    
+    local balance = LocalPlayer():GetNetworkedInt("Balance")
+    draw.SimpleText("CREDITS : ", "DermaDefault", statusX + 10, statusY + 115, divisionAmber, TEXT_ALIGN_LEFT)
+    draw.SimpleText(balance, "DermaDefault", statusX + 60, statusY + 115, Color(235, 200, 55, 255), TEXT_ALIGN_LEFT)
 end)
-    -- poor man's DRM i guess...
 end
-
+hook.Add("HUDPaint", "tooltip", function()
+    if input.IsKeyDown(KEY_H) then
+        local divisionDark = Color(20, 20, 25, 220)
+        local divisionAmber = Color(235, 150, 55, 255)
+        
+        local tooltipX, tooltipY = ScrW() - 300, ScrH() - 360
+        local tooltipW, tooltipH = 280, 200
+        
+        surface.SetDrawColor(divisionDark)
+        surface.DrawRect(tooltipX, tooltipY, tooltipW, tooltipH)
+        surface.SetDrawColor(divisionAmber)
+        surface.DrawOutlinedRect(tooltipX, tooltipY, tooltipW, tooltipH)
+        
+        surface.SetDrawColor(divisionAmber)
+        surface.DrawRect(tooltipX, tooltipY, tooltipW, 30)
+        draw.SimpleText("KEYBINDS", "DermaDefault", tooltipX + 10, tooltipY + 7, Color(20, 20, 25), TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP)
+        
+        draw.SimpleText("F4 : SCROUNGE", "DermaDefault", tooltipX + 10, tooltipY + 40, divisionAmber, TEXT_ALIGN_LEFT)
+        draw.SimpleText("F3 : INVENTORY", "DermaDefault", tooltipX + 10, tooltipY + 65, divisionAmber, TEXT_ALIGN_LEFT)
+        draw.SimpleText("B : SHOP MENU", "DermaDefault", tooltipX + 10, tooltipY + 90, divisionAmber, TEXT_ALIGN_LEFT)
+        draw.SimpleText("TAB : Settings", "DermaDefault", tooltipX + 10, tooltipY + 115, divisionAmber, TEXT_ALIGN_LEFT)
+        draw.SimpleText("H : Show Keybinds", "DermaDefault", tooltipX + 10, tooltipY + 140, divisionAmber, TEXT_ALIGN_LEFT)
+    end
+end)
 function HideDefault(name)
     for k, v in pairs({"CHudHealth", "CHudBattery", "CHudSecondaryAmmo"}) do
         if name == v then 

@@ -1,3 +1,5 @@
+include("globals/sh_shoptable.lua")
+
 net.Receive("jshop_bought", function(len, ply)
     local categoryName = net.ReadString()
     local id = net.ReadInt(32)

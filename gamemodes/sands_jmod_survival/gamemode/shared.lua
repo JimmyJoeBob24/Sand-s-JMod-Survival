@@ -18,8 +18,8 @@ include("globals/sh_convars.lua")
 
 
 function GM:Initialize(ply)
-	--old timer alegedly doesnt know how to use init functions on shared
-end    
+	--Lebron James Alegedly Caught Calling GM INIT but never using it
+end
 	
 function inventory( ply )
 	ply:ConCommand( "jmod_ez_inv" )

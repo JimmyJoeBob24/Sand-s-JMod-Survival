@@ -1,4 +1,5 @@
 include("menu/fonts.lua")
 include("menu/hud.lua")
 include("globals/sh_shoptable.lua")
+include("menu/settings.lua")
 include("menu/itemshop.lua")

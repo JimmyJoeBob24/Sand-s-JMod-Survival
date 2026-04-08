@@ -1,1 +1,2 @@
-resource.AddDirectory("sound/music/")
+resource.AddDirectory("sound/isac/")
+resource.AddDirectory("sounds/isac/")
