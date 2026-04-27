@@ -1,38 +1,235 @@
 "Gamemode"
 {
-	"base"			"base"
+	"base"			"sandbox"
 	"title"			"JMod Survival"
 	"maps"			"jm_"
 	"menusystem"	"1"
-	"category"		"pve"	
+	"category"		"pve"
 	"workshopid"	"3372177297"
 
 	"settings"
-	{		
-		1
+	{
+		"1"
 		{
-			"name" 		"toolsbool"
+			"name"		"toolsbool"
 			"text"		"Start With ToolBox"
-			"type" 		"CheckBox"
-			"default" 	"0"
+			"type"		"CheckBox"
+			"default"	"0"
 			"singleplayer"	"1"
 		}
-
-		2
+		"2"
 		{
-			"name" 		"kitstart"
+			"name"		"kitstart"
 			"text"		"Start With Some Tools (Pickaxe, Axe, Bucket)"
-			"type" 		"CheckBox"
-			"default" 	"0"
+			"type"		"CheckBox"
+			"default"	"0"
 			"singleplayer"	"1"
 		}
-
-		3
+		"3"
 		{
-			"name" 		"shoptoggle"
-			"text"		"Enable Shop System? "
-			"type" 		"CheckBox"
-			"default" 	"1"
+			"name"		"shoptoggle"
+			"text"		"Enable Shop System?"
+			"type"		"CheckBox"
+			"default"	"1"
+			"singleplayer"	"1"
+		}
+		"4"
+		{
+			"name"		"jmod_environmental_generate"
+			"text"		"Generate JMod Resources on Startup"
+			"type"		"CheckBox"
+			"default"	"1"
+			"singleplayer"	"1"
+		}
+		"5"
+		{
+			"name"		"jmod_environmental_mult_scatter"
+			"text"		"Object Scatter Multiplier"
+			"type"		"Numeric"
+			"min"		"0.1"
+			"max"		"5.2"
+			"default"	"1"
+			"decimals"	"1"
+			"singleplayer"	"1"
+		}
+		"6"
+		{
+			"name"		"jmod_environmental_mult_amount"
+			"text"		"General Object Amount"
+			"type"		"Numeric"
+			"min"		"0.1"
+			"max"		"3.5"
+			"default"	"1"
+			"decimals"	"1"
+			"singleplayer"	"1"
+		}
+		"7"
+		{
+			"name"		"jmod_environmental_mult_treeamount"
+			"text"		"Tree Amount Multiplier"
+			"type"		"Numeric"
+			"min"		"0.1"
+			"max"		"3.5"
+			"default"	"1"
+			"decimals"	"1"
+			"singleplayer"	"1"
+		}
+		"8"
+		{
+			"name"		"jmod_bacon_hunger_delay"
+			"text"		"Hunger Update Delay (Seconds)"
+			"type"		"Numeric"
+			"min"		"0.1"
+			"max"		"10.0"
+			"default"	"2"
+			"decimals"	"1"
+			"singleplayer"	"1"
+		}
+		"9"
+		{
+			"name"		"jmod_bacon_hunger_basenutrition"
+			"text"		"Spawn Nutrition Level"
+			"type"		"Numeric"
+			"min"		"1"
+			"max"		"100"
+			"default"	"100"
+			"decimals"	"0"
+			"singleplayer"	"1"
+		}
+		"10"
+		{
+			"name"		"jmod_bacon_hunger_coughchance"
+			"text"		"Starvation Cough Chance"
+			"type"		"Numeric"
+			"min"		"0"
+			"max"		"100"
+			"default"	"25"
+			"decimals"	"0"
+			"singleplayer"	"1"
+		}
+		"11"
+		{
+			"name"		"jmod_environmental_crop_corn_chance"
+			"text"		"Corn Spawn Chance"
+			"type"		"Numeric"
+			"min"		"0"
+			"max"		"100"
+			"default"	"50"
+			"decimals"	"0"
+			"singleplayer"	"1"
+		}
+		"12"
+		{
+			"name"		"jmod_environmental_crop_corn_mult"
+			"text"		"Corn Yield Multiplier"
+			"type"		"Numeric"
+			"min"		"0.1"
+			"max"		"5.0"
+			"default"	"1.0"
+			"decimals"	"1"
+			"singleplayer"	"1"
+		}
+		"13"
+		{
+			"name"		"jmod_environmental_crop_wheat_chance"
+			"text"		"Wheat Spawn Chance"
+			"type"		"Numeric"
+			"min"		"0"
+			"max"		"100"
+			"default"	"50"
+			"decimals"	"0"
+			"singleplayer"	"1"
+		}
+		"14"
+		{
+			"name"		"jmod_environmental_crop_wheat_mult"
+			"text"		"Wheat Yield Multiplier"
+			"type"		"Numeric"
+			"min"		"0.1"
+			"max"		"5.0"
+			"default"	"1.0"
+			"decimals"	"1"
+			"singleplayer"	"1"
+		}
+		"15"
+		{
+			"name"		"jmod_environmental_crop_flower_chance"
+			"text"		"Flower Spawn Chance"
+			"type"		"Numeric"
+			"min"		"0"
+			"max"		"100"
+			"default"	"50"
+			"decimals"	"0"
+			"singleplayer"	"1"
+		}
+		"16"
+		{
+			"name"		"jmod_environmental_crop_flower_mult"
+			"text"		"Flower Yield Multiplier"
+			"type"		"Numeric"
+			"min"		"0.1"
+			"max"		"5.0"
+			"default"	"1.0"
+			"decimals"	"1"
+			"singleplayer"	"1"
+		}
+		"17"
+		{
+			"name"		"jmod_bacon_config_merge_standard"
+			"text"		"Merge Standard JMod Bacon Recipes"
+			"type"		"CheckBox"
+			"default"	"1"
+			"singleplayer"	"1"
+		}
+		"18"
+		{
+			"name"		"jmod_bacon_config_merge_props"
+			"text"		"Merge GMod Prop Recipes"
+			"type"		"CheckBox"
+			"default"	"1"
+			"singleplayer"	"1"
+		}
+		"19"
+		{
+			"name"		"jmod_bacon_config_merge_HL2Extra"
+			"text"		"Merge HL2 Extra Recipes"
+			"type"		"CheckBox"
+			"default"	"0"
+			"singleplayer"	"1"
+		}
+		"20"
+		{
+			"name"		"jmod_environmental_experimental_auto"
+			"text"		"Auto-Generate Environmental Objects"
+			"type"		"CheckBox"
+			"default"	"1"
+			"singleplayer"	"1"
+		}
+		"21"
+		{
+			"name"		"jmod_environmental_experimental_oilfissures"
+			"text"		"Enable Underwater Oil Fissures"
+			"type"		"CheckBox"
+			"default"	"0"
+			"singleplayer"	"1"
+		}
+		"22"
+		{
+			"name"		"jmod_environmental_experimental_antlionmounds_max"
+			"text"		"Max Antlion Mounds"
+			"type"		"Numeric"
+			"min"		"0"
+			"max"		"15"
+			"default"	"3"
+			"decimals"	"0"
+			"singleplayer"	"1"
+		}
+		"23"
+		{
+			"name"		"jmod_environmental_experimental_disabletreedrops"
+			"text"		"Disable Tree Food Drops"
+			"type"		"CheckBox"
+			"default"	"0"
 			"singleplayer"	"1"
 		}
 	}

@@ -1,26 +1,22 @@
-GM.Name = "Sand's JModSurvival"
+GM.Name = "JMod - Survival"
 GM.Author = "SandManMcCoy"
 GM.Email = "discord_sandmanmcoy"
-DeriveGamemode("sandbox")
-
+DeriveGamemode("base")
+--Globals
 if SERVER then
     AddCSLuaFile("globals/sh_shoptable.lua")
 end
-
 include("globals/sh_shoptable.lua")
 
 if SERVER then
     AddCSLuaFile("menu/itemshop.lua")
 end
-
 include("globals/sh_convars.lua")
 
-
-
 function GM:Initialize(ply)
-	--Lebron James Alegedly Caught Calling GM INIT but never using it
+	--Lebron James Aledgedly Caught doing Jackshit in the GM:Initialize function
 end
-	
+
 function inventory( ply )
 	ply:ConCommand( "jmod_ez_inv" )
 end
