@@ -1,3 +1,5 @@
+// This is a fucking mess
+// i might try to organize it next update
 local nagged = 0
 local fuckingtired = 0
 local pissedoff = {
